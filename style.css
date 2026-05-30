@@ -1,0 +1,371 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial;
+    color:#333;
+}
+
+/* ================= NAV ================= */
+
+nav{
+    display:grid;
+    grid-template-columns:1fr auto;
+    align-items:center;
+    padding:1.25em 3.125em;
+    background:white;
+    box-shadow:0 0.125em 0.625em rgba(0,0,0,0.1);
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+nav ul{
+    display:grid;
+    grid-auto-flow:column;
+    list-style:none;
+    gap:1.875em;
+}
+
+nav a{
+    text-decoration:none;
+    color:black;
+    font-weight:500;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#3d3e94;
+}
+
+/* ================= HERO ================= */
+
+#home{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    padding:5em 3.125em;
+    min-height:90vh;
+    background:linear-gradient(135deg,#f4f0ff,#fff);
+    gap:2em;
+}
+
+.hero-img img{
+    width:100%;
+    max-width:21.875em;
+    animation:
+        floatBag 3s ease-in-out infinite,
+        moveSide 6s linear infinite alternate;
+}
+
+@keyframes floatBag{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-1.25em);}
+    100%{transform:translateY(0);}
+}
+
+@keyframes moveSide{
+    0%{transform:translateX(0);}
+    100%{transform:translateX(-3em);}
+}
+
+.hero-text h1{
+    font-size:3.4em;
+    margin:0.5em 0;
+}
+
+.hero-text p{
+    line-height:1.8;
+    margin-bottom:1.25em;
+}
+
+/* ================= BUTTON ================= */
+
+.btn{
+    display:inline-block;
+    padding:0.75em 1.875em;
+    background:black;
+    color:white;
+    text-decoration:none;
+    border-radius:1.875em;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#3d3e94;
+    transform:scale(1.05);
+}
+
+/* ================= ABOUT ================= */
+
+#about{
+    text-align:center;
+    padding:4.375em 3.125em;
+}
+
+/* ================= PRODUCTS ================= */
+
+#products{
+    padding:4.375em 3.125em;
+    text-align:center;
+}
+
+.filter-buttons{
+    margin:2em 0;
+    display:grid;
+    grid-auto-flow:column;
+    justify-content:center;
+    gap:1em;
+}
+
+.filter-btn{
+     font-family:'Poppins', sans-serif;
+    background:transparent;
+    border:none;
+    color:#555;
+    font-size:1.1em;
+    font-weight:600;
+    cursor:pointer;
+    padding:0;
+    transition:0.3s;
+}
+
+.filter-btn.active{
+    color:#3293c0;
+}
+
+.filter-btn:hover{
+    background:transparent;
+   color:#3293c0;
+    transform:none;
+}
+
+.products-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1.5625em;
+}
+
+/* ================= PRODUCT CARD ================= */
+
+.product-card{
+    position:relative;
+    background:white;
+    border-radius:1.25em;
+    overflow:hidden;
+    box-shadow:0 0.25em 0.9375em rgba(0,0,0,0.08);
+    transition:0.4s;
+}
+
+.product-image{
+    overflow:hidden;
+    height:15.625em;
+}
+
+.product-image img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    display:block;
+    transition:0.5s ease;
+}
+
+/* الصورة تطلع لفوق */
+.product-card:hover .product-image img{
+    transform:translateY(-1.2em) scale(1.05);
+}
+
+/* ================= GLASS INFO ================= */
+
+.product-info{
+    position:absolute;
+    bottom:-8em;
+    left:0;
+    width:100%;
+    padding:1em;
+    text-align:center;
+    color:#000;
+
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(0.8em);
+    -webkit-backdrop-filter:blur(0.8em);
+
+    transition:0.5s ease;
+}
+
+/* النص يطلع */
+.product-card:hover .product-info{
+    bottom:0;
+}
+
+/* ================= VIEW ICON 👁️ ================= */
+
+.view-icon{
+    position:absolute;
+    bottom:0.8em;
+    right:0.8em;
+    width:1.8em;
+    height:1.8em;
+    background:rgba(0,0,0,0.75);
+    color:white;
+    display:grid;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    text-decoration:none;
+    font-size:0.9em;
+    opacity:0;
+    transform:scale(0.5);
+    transition:0.3s ease;
+}
+
+.product-card:hover .view-icon{
+    opacity:1;
+    transform:scale(1);
+}
+
+/* ================= CUSTOMERS ================= */
+
+#customers{
+    background:#f9f9f9;
+    padding:4.375em 3.125em;
+    text-align:center;
+}
+
+.customers-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(15em,1fr));
+    gap:1.25em;
+    margin-top:1.875em;
+}
+
+.customer-card{
+    background:white;
+    padding:1.875em;
+    border-radius:1.25em;
+}
+
+.customer-card img{
+    width:4.375em;
+    height:4.375em;
+    border-radius:50%;
+    margin-bottom:0.9375em;
+}
+
+/* ================= SUBSCRIBE ================= */
+
+#subscribe{
+    background:black;
+    color:white;
+    text-align:center;
+    padding:4.375em 1.25em;
+}
+
+.subscribe-box{
+    display: grid;
+    gap: 1em;
+    width: 18.75em;
+    margin: auto;
+    margin-top: 1.25em;
+}
+
+.subscribe-box input{
+    padding: 0.75em;
+    border: none;
+    border-radius: 0.625em;
+    outline: none;
+    font-size: 1em;
+}
+
+.phone-number{
+    color: white;
+    font-size: 1.125em;
+    margin-top: 0.625em;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    text-align:center;
+    padding:1.875em;
+    background:#f1f1f1;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:48em){
+    #home{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .products-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:30em){
+    .products-grid{
+        grid-template-columns:1fr;
+    }
+
+    .filter-buttons{
+        grid-auto-flow:row;
+    }
+}
+
+.hide{
+    display:none !important;
+}
+#userData{
+    margin-top:1.25em;
+    padding:0.9375em;
+    border-radius:0.625em;
+    background:rgba(231,225,225,0.884);
+}
+
+#userData p{
+    margin:0.5em 0;
+    color:rgb(24,22,22);
+}
+
+#userData button{
+    margin-left:0.5em;
+    border:none;
+    background:none;
+    cursor:pointer;
+    font-size:1em;
+}
+
+.saved-user{
+    margin-top:0.9375em;
+    text-align:left;
+    display:grid;
+    gap:0.3125em;
+}
+
+.user-header{
+    display:grid;
+    grid-template-columns:1fr auto auto;
+    align-items:center;
+    gap:0.625em;
+    font-size:1.125em;
+    font-weight:bold;
+    color:rgb(12,12,12);
+}
+
+.user-email{
+    margin-top:0.3125em;
+    color:rgb(12,12,12);
+    font-size:0.875em;
+}
+
+.saved-user button{
+    border:none;
+    background:none;
+    cursor:pointer;
+    font-size:1em;
+}
